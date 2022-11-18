@@ -26,6 +26,7 @@ class AdjacencyList
 		//Map that stores outdegree value of each url
 		std::map<std::string, int> out_degree_map;
 
+		//Map that stores power iteration values
 		std::map<int, double> power_iteration_map;
 
 	public:
@@ -48,51 +49,16 @@ class AdjacencyList
 		//Adds 1 to a url's outdegree
 		void SetOutDegreeMap(std::string o);
 
-		//Initializes Page Rank 
-		void InitializePageRank();
+		//Initializes Gaph Values
+		void InitializeGraphValues();
 
+		//Sets and prints the ranks of every url
 		void PageRank(int power_iterations);
 
+		//Returns power iteration map
 		std::map<int, double>& GetPowerIterationMap();
 
+		//Prints rank for url
 		void PrintPageRank();
 
-
-
-		//void PrintGraph();
-		void PrintSmthn() {
-			int source = 1;
-			//std::vector<double> d;
-
-			std::set<int> visited;
-			std::queue<int> q;
-
-			visited.insert(source);
-			q.push(source);
-
-			while (!q.empty())
-			{
-			
-				int u = q.front();
-
-				std::vector<std::pair<int, double>> neighbors = graph[u];
-				for (int i = 0; i < neighbors.size(); i++) {
-					std::cout << u << " " << neighbors[i].first << " " << neighbors[i].second << " ";
-				}
-
-				std::cout << std::endl;
-
-				q.pop();
-
-				std::sort(neighbors.begin(), neighbors.begin() + neighbors.size());
-				for (std::pair<int, double> v : neighbors)
-				{
-					if (visited.count(v.first) == 0)
-					{
-						visited.insert(v.first);
-						q.push(v.first);
-					}
-				}
-			}
-		}
 };

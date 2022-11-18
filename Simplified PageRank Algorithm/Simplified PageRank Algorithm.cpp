@@ -5,7 +5,6 @@
 #include <map>
 #include <string>
 #include <map>
-
 #include "AdjacencyList .h"
 
 int main()
@@ -44,30 +43,10 @@ int main()
         //Stores an edge into the main graph
         Created_Graph.insertEdge(Created_Graph.GetWebpages()[from], Created_Graph.GetWebpages()[to]);
     }
-    //Created_Graph.PrintSmthn();
-    //Sets every edge in the adjacency list to include a "weight" of 1 over the outdegree of the "from" url
-    //Created_Graph.InitializePageRank();
 
+    //Creates and prints page rank
     Created_Graph.PageRank(power_iterations);
 
-    /*std::map<int, double>::iterator itr;
-    for (itr = Created_Graph.GetPowerIterationMap().begin(); itr != Created_Graph.GetPowerIterationMap().end(); ++itr) {
-        std::cout << itr->first << " " << itr->second << std::endl;
-    }*/
-    
-
-
-    /*std::map<std::string, int>::iterator itr;
-    for (itr = Created_Graph.GetOutDegreeMap().begin(); itr != Created_Graph.GetOutDegreeMap().end(); ++itr) {
-        std::cout << itr->first << " " << itr->second << std::endl;
-    }
-
-    
-
-
-    */
-    
-    //Created_Graph.PrintWebpages();
     return 0;
 }
 
